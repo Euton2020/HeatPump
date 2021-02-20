@@ -653,6 +653,9 @@ int HeatPump::readPacket() {
             }
 
             case 0x04: { // unknown
+                if(data[4] != 0x80 || data[5] != 0x00){
+                    return RCVD_PKT_FAIL;
+                }
                 break; 
             }
 
